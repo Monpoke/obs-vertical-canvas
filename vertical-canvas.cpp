@@ -8623,7 +8623,7 @@ void CanvasDock::OpenSourceProjector()
 
 void CanvasDock::updateStreamKey(const QString &newStreamKey, int index)
 {
-	if ((int)streamOutputs.size() < index) {
+	if (index < 0 || index >= (int)streamOutputs.size()) {
 		return;
 	}
 	streamOutputs[index].stream_key = newStreamKey.toStdString();
@@ -8631,7 +8631,7 @@ void CanvasDock::updateStreamKey(const QString &newStreamKey, int index)
 
 void CanvasDock::updateStreamServer(const QString &newStreamServer, int index)
 {
-	if ((int)streamOutputs.size() < index) {
+	if (index < 0 || index >= (int)streamOutputs.size()) {
 		return;
 	}
 	streamOutputs[index].stream_server = newStreamServer.toStdString();
